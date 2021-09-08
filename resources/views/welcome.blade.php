@@ -30,7 +30,7 @@
 
                 @foreach ($libreria as $librerias)
                 <div class="flex bg-gray-200">
-                    <img src="{{ $librerias->imagen }}" alt="">
+                    <div class="flex-1 px-4 py-2 m-2 text-center text-gray-700 bg-gray-400"><img src="{{ $librerias->imagen }}" alt="" class="h-20 w-30" fill="none"></div>
                     <div class="flex-1 px-4 py-2 m-2 text-center text-gray-700 bg-gray-400">{{ $librerias->nombre }}</div>
                     <div class="flex-1 px-4 py-2 m-2 text-center text-gray-700 bg-gray-400">{{ $librerias->genero }}</div>
                     <div class="flex-1 px-4 py-2 m-2 text-center text-gray-700 bg-gray-400">{{ $librerias->doblaje }}</div>
