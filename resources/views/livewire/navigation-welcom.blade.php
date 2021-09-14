@@ -16,10 +16,10 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('login') }}">
-                        {{ __('login') }}
+                        {{ __('Iniciar secion') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('register') }}">
-                        {{ __('register') }}
+                        {{ __('Registrase') }}
                     </x-jet-nav-link>
                 </div>
             </div>

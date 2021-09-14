@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\homeController;
+use App\Models\Libreria;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
