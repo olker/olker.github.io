@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Libreria;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,11 +14,22 @@ class LibreriaTablasWelcom extends Component
     public $nombreLibreria = "";
     public function render()
     {
-        return view('livewire.libreria-tablas-welcom',[
-            'libreria' => Libreria::where('nombre','LIKE',"%{$this->nombreLibreria}%")
+        if (Auth::user()) {
+            $idUser = Auth::id();
+            $libreria = Libreria::where([['nombre','LIKE',"%{$this->nombreLibreria}%"],['user_id',$idUser]])
+            ->orwhere([['genero','LIKE',"%{$this->nombreLibreria}%"],['user_id',$idUser]])
+            ->orwhere([['disco','LIKE',"%{$this->nombreLibreria}%"],['user_id',$idUser]])
+            ->paginate($this->numeroPagina);
+            return view('livewire.libreria-tablas-welcom', compact('libreria'));
+        }
+        else{
+            $libreria = Libreria::where('nombre','LIKE',"%{$this->nombreLibreria}%")
             ->orwhere('genero','LIKE',"%{$this->nombreLibreria}%")
             ->orwhere('disco','LIKE',"%{$this->nombreLibreria}%")
-            ->paginate($this->numeroPagina)]);
+            ->paginate($this->numeroPagina);
+            return view('livewire.libreria-tablas-welcom', compact('libreria'));
+        }
+
     }
     public function clear()
     {

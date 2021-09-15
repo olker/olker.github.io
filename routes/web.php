@@ -21,4 +21,7 @@ Route::get('/', homeController::class);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/registro/libreria',function(){
+    return view('registro-librerias');
+})->name('libreria.registro');
 
