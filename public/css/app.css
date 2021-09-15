@@ -1100,6 +1100,9 @@ select {
 .prose > :last-child {
 	margin-bottom: 0;
 }
+.static {
+	position: static;
+}
 .fixed {
 	position: fixed;
 }
@@ -1133,12 +1136,22 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
+.float-left {
+	float: left;
+}
 .-m-4 {
 	margin: -1rem;
+}
+.m-0 {
+	margin: 0px;
 }
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
+}
+.my-1 {
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
 }
 .my-3 {
 	margin-top: 0.75rem;
@@ -1219,6 +1232,12 @@ select {
 }
 .-mt-px {
 	margin-top: -1px;
+}
+.mb-8 {
+	margin-bottom: 2rem;
+}
+.mb-0 {
+	margin-bottom: 0px;
 }
 .block {
 	display: block;
@@ -1313,11 +1332,11 @@ select {
 .w-20 {
 	width: 5rem;
 }
-.w-80 {
-	width: 20rem;
-}
 .w-72 {
 	width: 18rem;
+}
+.w-80 {
+	width: 20rem;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -1333,6 +1352,9 @@ select {
 }
 .max-w-6xl {
 	max-width: 72rem;
+}
+.max-w-sm {
+	max-width: 24rem;
 }
 .flex-1 {
 	flex: 1 1 0%;
@@ -1499,6 +1521,9 @@ select {
 .border-2 {
 	border-width: 2px;
 }
+.border-4 {
+	border-width: 4px;
+}
 .border-b-2 {
 	border-bottom-width: 2px;
 }
@@ -1624,6 +1649,12 @@ select {
 .p-4 {
 	padding: 1rem;
 }
+.p-3 {
+	padding: 0.75rem;
+}
+.p-0 {
+	padding: 0px;
+}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1722,6 +1753,9 @@ select {
 .text-right {
 	text-align: right;
 }
+.align-baseline {
+	vertical-align: baseline;
+}
 .font-sans {
 	font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -1751,6 +1785,10 @@ select {
 .text-xl {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
+}
+.text-3xl {
+	font-size: 1.875rem;
+	line-height: 2.25rem;
 }
 .font-medium {
 	font-weight: 500;
@@ -1852,6 +1890,10 @@ select {
 .text-gray-300 {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
+.text-black {
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
