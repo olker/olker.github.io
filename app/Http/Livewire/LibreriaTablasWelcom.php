@@ -14,7 +14,10 @@ class LibreriaTablasWelcom extends Component
     public function render()
     {
         return view('livewire.libreria-tablas-welcom',[
-            'libreria' => Libreria::where('nombre','LIKE',"%{$this->nombreLibreria}%")->paginate($this->numeroPagina)]);
+            'libreria' => Libreria::where('nombre','LIKE',"%{$this->nombreLibreria}%")
+            ->orwhere('genero','LIKE',"%{$this->nombreLibreria}%")
+            ->orwhere('disco','LIKE',"%{$this->nombreLibreria}%")
+            ->paginate($this->numeroPagina)]);
     }
     public function clear()
     {
