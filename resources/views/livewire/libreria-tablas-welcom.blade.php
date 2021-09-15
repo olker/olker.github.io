@@ -1,14 +1,20 @@
 <div class="p-4 bg-white border-b border-gray-200 sm:px-20">
     <div class="flex items-center justify-center p-6 px-4 py-2">
         <div class="flex border-2 rounded">
-            <input type="text" class="px-4 py-2 w-80" placeholder="Buscar...">
-            <button class="flex items-center justify-center px-4 border-l">
-                <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24">
-                    <path
-                        d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                </svg>
+            <input wire:model="nombreLibreria" type="text" class="px-4 py-2 w-80" placeholder="Buscar...">
+            <select wire:model="numeroPagina" class="flex items-center justify-center px-4 border-l">
+                <option value="5">5 por página</option>
+                <option value="10">10 por página</option>
+                <option value="15">15 por página</option>
+                <option value="25">25 por página</option>
+                <option value="50">50 por página</option>
+                <option value="100">100 por página</option>
+            </select>
+            @if ($nombreLibreria ==! "")
+            <button wire:click="clear" class="flex items-center justify-center px-4 border-l">
+                X
             </button>
+            @endif
         </div>
     </div>
     <div class="mt-8 text-2xl">
@@ -32,9 +38,17 @@
                 @endforeach
             </div>
         </div>
-            <div class="p-6">
-                {{ $libreria->links()}}
-            </div>
+        @if ($libreria->count())
+        <div class="p-6">
+            {{ $libreria->links()}}
+        </div>
+        @else
+        <div class="p-6">
+            <h2 class="mb-4 text-lg font-medium text-gray-500 title-font">
+                El nombre, genero, numero de disco, buscado en esta libreria no existe </h2>
+        </div>
+        @endif
+
 
     </div>
 </div>
