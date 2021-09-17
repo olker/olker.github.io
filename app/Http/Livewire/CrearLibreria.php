@@ -5,12 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Libreria;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-
+use Livewire\WithFileUploads;
 class CrearLibreria extends Component
 {
+    use WithFileUploads;
     protected $paginationTheme = 'bootstrap';
-    public $selected_id, $keyWord, $nombre, $genero, $imagen, $doblaje, $subtitulado, $descripcion, $disco, $peso;
-
+    public $selected_id, $keyWord, $nombre, $imagen, $genero, $doblaje, $subtitulado, $descripcion, $disco, $peso;
     public $updateMode = false;
     public function render()
     {
@@ -27,7 +27,6 @@ class CrearLibreria extends Component
 		$this->descripcion = null;
 		$this->disco = null;
 		$this->peso = null;
-		$this->user_id = null;
     }
     public function store()
     {
@@ -35,18 +34,21 @@ class CrearLibreria extends Component
         $this->validate([
 		'nombre' => 'required',
 		'genero' => 'required',
-		'imagen' => 'required',
+		'imagen' => 'required|image|mimes:png,jpg,svg|max:2048',
 		'doblaje' => 'required',
 		'subtitulado' => 'required',
 		'descripcion' => 'required',
 		'disco' => 'required',
 		'peso' => 'required',
         ]);
-
+		$file = $this->imagen;
+        $name = time().'.'.$file->getClientOriginalExtension();
+        $this->imagen->storeAs('public/imagenes', $name);
+        $ruta = "imagenes/".$name;
         Libreria::create([
 			'nombre' => $this-> nombre,
 			'genero' => $this-> genero,
-			'imagen' => $this-> imagen,
+			'imagen' => $ruta,
 			'doblaje' => $this-> doblaje,
 			'subtitulado' => $this-> subtitulado,
 			'descripcion' => $this-> descripcion,

@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\homeController;
+use App\Http\Livewire\CrearLibreria;
 use App\Models\Libreria;
 use App\Models\User;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +26,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/registro/libreria',function(){
     return view('registro-librerias');
 })->name('libreria.registro');
+Route::middleware(['auth:sanctum', 'verified'])->post('/registro/libreria/store',[CrearLibreria::class,'store'])->name('libreria.store');
+
 

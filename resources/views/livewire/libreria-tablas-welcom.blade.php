@@ -26,7 +26,7 @@
                     <div class="flex flex-wrap -m-4">
                       <div class="xl:w-auto md:w-auto">
                         <div class="p-4 bg-white rounded-lg">
-                          <img class="object-fill object-center mb-6 rounded-lg w-72 h-96" src="{{ $item_libreria->imagen }}" alt="Image Size 720x400">
+                          <img class="object-fill object-center mb-6 rounded-lg w-72 h-96" src="storage/{{ $item_libreria->imagen }}" alt="Image Size 720x400">
                           <h3 class="text-xs font-medium tracking-widest text-indigo-500 title-font">Genero: {{ $item_libreria->genero }}</h3>
                           <h2 class="mb-4 text-lg font-medium text-indigo-500 title-font">Nombre: {{ $item_libreria->nombre }}</h2>
                           <p class="text-base leading-relaxed">Descricion: {{ $item_libreria->descripcion }}</p>

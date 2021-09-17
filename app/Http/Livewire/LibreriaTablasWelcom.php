@@ -19,6 +19,7 @@ class LibreriaTablasWelcom extends Component
             $libreria = Libreria::where([['nombre','LIKE',"%{$this->nombreLibreria}%"],['user_id',$idUser]])
             ->orwhere([['genero','LIKE',"%{$this->nombreLibreria}%"],['user_id',$idUser]])
             ->orwhere([['disco','LIKE',"%{$this->nombreLibreria}%"],['user_id',$idUser]])
+            ->orderBy('id', 'DESC')
             ->paginate($this->numeroPagina);
             return view('livewire.libreria-tablas-welcom', compact('libreria'));
         }
