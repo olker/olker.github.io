@@ -15,10 +15,10 @@ class CreateCategoriasTable extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->id();
-            $table->integer('capitulos');
+            $table->string('capitulos');
             $table->string('temporada');
             $table->unsignedBigInteger('librerias_id');
-            $table->foreign('librerias_id')->references('id')->on('librerias');
+            $table->foreign('librerias_id')->references('id')->on('librerias')->onDelete('cascade');
             $table->timestamps();
         });
     }

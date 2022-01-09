@@ -15,16 +15,17 @@ class CreateLibreriasTable extends Migration
     {
         Schema::create('librerias', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',45);
-            $table->string('genero',45);
+            $table->string('nombre',120);
+            $table->string('genero',120);
             $table->string('imagen');
-            $table->string('doblaje',45);
-            $table->string('subtitulado',45);
-            $table->string('descripcion');
+            $table->string('doblaje',120);
+            $table->string('subtitulado',120);
+            $table->text('descripcion');
             $table->integer('disco');
             $table->double('peso');
+            $table->string('tipo',120);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

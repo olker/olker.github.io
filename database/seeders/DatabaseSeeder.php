@@ -1,10 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-
-use App\Models\Libreria;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Categoria;
+use App\Models\Libreria;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,3 +20,5 @@ class DatabaseSeeder extends Seeder
         Libreria::factory(50)->create();
     }
 }
+
+

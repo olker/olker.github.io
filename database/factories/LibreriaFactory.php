@@ -24,7 +24,7 @@ class LibreriaFactory extends Factory
     public function definition()
     {
 
-        $array = ['imagenes/logo.jpg','imagenes/logo1.jpg','imagenes/logo2.jpg','imagenes/logo3.jpg'];
+        $array = ['storage/imagenes/1631911410.jpg','storage/imagenes/logo1.jpg','storage/imagenes/logo2.jpg','storage/imagenes/logo3.jpg'];
         $array_nombre =['one piece','hunter x hunter','clannad'];
         $array_genero =['shonen','drama','meca','psicologico'];
         return [
@@ -36,6 +36,7 @@ class LibreriaFactory extends Factory
             'descripcion' => $this->faker->text(),
             'disco' => $this->faker->numberBetween(1, 10),
             'peso' => 25.25,
+            'tipo' =>$this->faker->randomElement(['pelicula','serie','anime']),
             'user_id' => $this->faker->numberBetween(1, 5),
         ];
     }

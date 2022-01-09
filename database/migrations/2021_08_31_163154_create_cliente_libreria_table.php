@@ -18,8 +18,8 @@ class CreateClienteLibreriaTable extends Migration
             $table->date('fecha');
             $table->unsignedBigInteger('clientes_id');
             $table->unsignedBigInteger('librerias_id');
-            $table->foreign('clientes_id')->references('id')->on('clientes');
-            $table->foreign('librerias_id')->references('id')->on('librerias');
+            $table->foreign('clientes_id')->references('id')->on('clientes')->onDelete('cascade');
+            $table->foreign('librerias_id')->references('id')->on('librerias')->onDelete('cascade');
             $table->timestamps();
         });
     }

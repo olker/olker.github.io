@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\MostrarLibreria;
 use App\Http\Livewire\CrearLibreria;
-use App\Models\Libreria;
-use App\Models\User;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', homeController::class);
+Route::get('/', homeController::class)->name('index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -27,5 +25,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/registro/libreria',functi
     return view('registro-librerias');
 })->name('libreria.registro');
 Route::middleware(['auth:sanctum', 'verified'])->post('/registro/libreria/store',[CrearLibreria::class,'store'])->name('libreria.store');
-
+Route::get('/mostrar/libreria/{libreria}',[MostrarLibreria::class,'show'])->name('libreria.mostrar');
+Route::middleware(['auth:sanctum', 'verified'])->get('eliminar/libreria/{datos}', [MostrarLibreria::class,'delete'])->name('delete.libreria');
 

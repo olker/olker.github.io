@@ -25,7 +25,8 @@
           <input wire:model="subtitulado" type="text" class="px-3 py-2 mt-1 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="subtitulado" placeholder="Subtitulado">@error('subtitulado') <span class="error text-danger">{{ $message }}</span> @enderror
         </div>
       </div>
-      <div class="grid grid-cols-1 mt-5 mx-7">
+      <div class="grid grid-cols-1 gap-5 mt-5 md:grid-cols-2 md:gap-8 mx-7">
+        <div class="grid grid-cols-1">
         <label class="text-xs font-semibold text-gray-500 uppercase md:text-sm text-light">Genero</label>
         <select wire:model="genero" class="px-3 py-2 mt-1 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="genero" placeholder="Genero">
           <option value=""></option>
@@ -35,23 +36,42 @@
           <option value="Seinen">Seinen</option>
           <option value="Magical Girls">Magical Girlsn</option>
           <option value="Mecha">Mecha</option>
-          <option value="Pelicula Acción">Pelicula Acción</option>
-          <option value="Pelicula Aventuras">Pelicula Aventuras</option>
-          <option value="Pelicula Ciencia Ficción">Pelicula Ciencia Ficció</option>
-          <option value="Pelicula Comedia">Pelicula Comedia</option>
-          <option value="Pelicula Drama">Pelicula Drama</option>
-          <option value="Pelicula Fantasía">Pelicula Fantasía</option>
-          <option value="Pelicula Musical">Pelicula Musical</option>
-          <option value="Pelicula Terror">Pelicula Terror</option>
-          <option value="Pelicula Animada">Pelicula Animada</option>
-          <option value="Serie Thriller e intriga">Serie Thriller e intriga</option>
-          <option value="Serie Ciencia ficción">Serie Ciencia ficción</option>
-          <option value="Serie Dramas políticos">Serie Dramas políticos</option>
-          <option value="Serie Terror">Serie Terror</option>
-          <option value="Serie Animada">Serie Animada</option>
+          <option value="Acción">Acción</option>
+          <option value="Aventura">Aventura</option>
+          <option value="Ciencia Ficción">Ciencia Ficció</option>
+          <option value="Comedia">Comedia</option>
+          <option value="Drama">Drama</option>
+          <option value="Fantasía">Fantasía</option>
+          <option value="Musical">Musical</option>
+          <option value="Terror">Terror</option>
+          <option value="Thriller e intriga">Thriller e intriga</option>
+          <option value="Dramas políticos">Dramas políticos</option>
+          <option value="Animada">Animada</option>
         </select>@error('genero') <span class="error text-danger">{{ $message }}</span> @enderror
+        </div>
+        <div class="grid grid-cols-1">
+        <label class="text-xs font-semibold text-gray-500 uppercase md:text-sm text-light">Tipo</label>
+        <select wire:model="tipo" class="px-3 py-2 mt-1 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="genero" placeholder="Genero">
+          <option value=""></option>
+          <option value="pelicula">Pelicula</option>
+          <option value="serie">Serie</option>
+          <option value="anime">Anime</option>
+          <option value="documental">Documental</option>
+        </select>@error('tipo') <span class="error text-danger">{{ $message }}</span> @enderror
+        </div>
       </div>
-
+      @if ($tipo == "serie" or $tipo == "anime")
+      <div class="grid grid-cols-1 gap-5 mt-5 md:grid-cols-2 md:gap-8 mx-7">
+        <div class="grid grid-cols-1">
+          <label class="text-xs font-semibold text-gray-500 uppercase md:text-sm text-light">Capitulos</label>
+          <input wire:model="capitulos" type="text" class="px-3 py-2 mt-1 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="capitulos" placeholder="nn-nn">@error('acpitulos') <span class="error text-danger">{{ $message }}</span> @enderror
+        </div>
+        <div class="grid grid-cols-1">
+          <label class="text-xs font-semibold text-gray-500 uppercase md:text-sm text-light">Temporada</label>
+          <input wire:model="temporada" type="text" class="px-3 py-2 mt-1 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="temporada" placeholder="Temporada n">@error('temporada') <span class="error text-danger">{{ $message }}</span> @enderror
+        </div>
+      </div>
+      @endif
       <div class="grid grid-cols-1 mt-5 mx-7">
         <label class="text-xs font-semibold text-gray-500 uppercase md:text-sm text-light">Descripcion</label>
         <textarea wire:model="descripcion" class="px-3 py-2 mt-1 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="descripcion" placeholder="Descripcion"></textarea>@error('descripcion') <span class="error text-danger">{{ $message }}</span> @enderror

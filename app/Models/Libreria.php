@@ -17,6 +17,7 @@ class Libreria extends Model
         'descripcion',
         'disco',
         'peso',
+        'tipo',
         'user_id',
     ];
     public function user(){

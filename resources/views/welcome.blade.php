@@ -25,7 +25,7 @@
     </head>
     <body class="antialiased">
         <x-jet-banner />
-        @livewire('navigation-welcom')
+        @livewire('navigation-menu')
         @livewire('libreria-tablas-welcom')
         @stack('modals')
         @livewireScripts

@@ -21,6 +21,6 @@
         "tailwindcss": "^2.2.15"
     },
     "dependencies": {
-        "sweetalert2": "^11.1.5"
+        "sweetalert2": "^11.2.2"
     }
 }
